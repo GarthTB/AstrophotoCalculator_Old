@@ -223,11 +223,13 @@ namespace 星空计算器
             {
                 if (fwhm > 0 && exp1 == 0)
                 {
-
+                    exp1 = (float)(res1 * fwhm * 21541 / Math.Cos(dec * Math.PI / 180) / 324000);
+                    textBoxexp1.Text = exp1.ToString("N3");
                 }
                 else if (exp1 > 0 && fwhm == 0)
                 {
-
+                    fwhm = (float)(Math.Cos(dec * Math.PI / 180) * 324000 * exp1 / res1 / 21541);
+                    textBoxexp1.Text = fwhm.ToString("N3");
                 }
                 else
                 {
