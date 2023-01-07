@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formmain));
             this.tabControlmain = new System.Windows.Forms.TabControl();
             this.tabPagelense = new System.Windows.Forms.TabPage();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.buttonclear1 = new System.Windows.Forms.Button();
@@ -129,7 +128,6 @@
             // 
             // tabPagelense
             // 
-            this.tabPagelense.Controls.Add(this.linkLabel3);
             this.tabPagelense.Controls.Add(this.linkLabel2);
             this.tabPagelense.Controls.Add(this.linkLabel1);
             this.tabPagelense.Controls.Add(this.buttonclear1);
@@ -153,17 +151,6 @@
             this.tabPagelense.TabIndex = 0;
             this.tabPagelense.Text = "镜头";
             this.tabPagelense.UseVisualStyleBackColor = true;
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(331, 138);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(71, 36);
-            this.linkLabel3.TabIndex = 16;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "大便";
-            this.linkLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // linkLabel2
             // 
@@ -368,14 +355,14 @@
             this.tabPagesensor.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagesensor.Size = new System.Drawing.Size(446, 374);
             this.tabPagesensor.TabIndex = 1;
-            this.tabPagesensor.Text = "像素";
+            this.tabPagesensor.Text = "相机";
             this.tabPagesensor.UseVisualStyleBackColor = true;
             // 
             // textBoxanglev1
             // 
             this.textBoxanglev1.Location = new System.Drawing.Point(274, 315);
             this.textBoxanglev1.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxanglev1.MaxLength = 5;
+            this.textBoxanglev1.MaxLength = 10;
             this.textBoxanglev1.Name = "textBoxanglev1";
             this.textBoxanglev1.Size = new System.Drawing.Size(156, 44);
             this.textBoxanglev1.TabIndex = 29;
@@ -385,7 +372,7 @@
             // 
             this.textBoxangleh1.Location = new System.Drawing.Point(104, 315);
             this.textBoxangleh1.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxangleh1.MaxLength = 5;
+            this.textBoxangleh1.MaxLength = 10;
             this.textBoxangleh1.Name = "textBoxangleh1";
             this.textBoxangleh1.Size = new System.Drawing.Size(156, 44);
             this.textBoxangleh1.TabIndex = 28;
@@ -430,12 +417,15 @@
             this.comboBoxmodel.FormattingEnabled = true;
             this.comboBoxmodel.ItemHeight = 36;
             this.comboBoxmodel.Items.AddRange(new object[] {
-            "D5100（IMX071）",
-            "Z6（IMX410）"});
+            "",
+            "D5100 (IMX071)",
+            "Z6 (IMX410)",
+            "α7Ⅲ (IMX410)"});
             this.comboBoxmodel.Location = new System.Drawing.Point(157, 15);
             this.comboBoxmodel.Name = "comboBoxmodel";
             this.comboBoxmodel.Size = new System.Drawing.Size(273, 44);
             this.comboBoxmodel.TabIndex = 15;
+            this.comboBoxmodel.SelectedIndexChanged += new System.EventHandler(this.comboBoxmodel_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -469,6 +459,7 @@
             this.buttonclear2.TabIndex = 23;
             this.buttonclear2.Text = "归零";
             this.buttonclear2.UseVisualStyleBackColor = true;
+            this.buttonclear2.Click += new System.EventHandler(this.buttonclear2_Click);
             // 
             // textBoxpixelh
             // 
@@ -489,7 +480,7 @@
             this.label7.Padding = new System.Windows.Forms.Padding(6);
             this.label7.Size = new System.Drawing.Size(139, 48);
             this.label7.TabIndex = 24;
-            this.label7.Text = "像素尺寸";
+            this.label7.Text = "像素大小";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttoncal2
@@ -502,6 +493,7 @@
             this.buttoncal2.TabIndex = 22;
             this.buttoncal2.Text = "计算";
             this.buttoncal2.UseVisualStyleBackColor = true;
+            this.buttoncal2.Click += new System.EventHandler(this.buttoncal2_Click);
             // 
             // label8
             // 
@@ -512,7 +504,7 @@
             this.label8.Padding = new System.Windows.Forms.Padding(6);
             this.label8.Size = new System.Drawing.Size(167, 48);
             this.label8.TabIndex = 19;
-            this.label8.Text = "横纵像素数";
+            this.label8.Text = "有源像素数";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxsensorv
@@ -578,6 +570,7 @@
             this.buttoncal31.TabIndex = 30;
             this.buttoncal31.Text = "计算";
             this.buttoncal31.UseVisualStyleBackColor = true;
+            this.buttoncal31.Click += new System.EventHandler(this.buttoncal31_Click);
             // 
             // label14
             // 
@@ -601,6 +594,7 @@
             this.buttonclear3.TabIndex = 40;
             this.buttonclear3.Text = "归零";
             this.buttonclear3.UseVisualStyleBackColor = true;
+            this.buttonclear3.Click += new System.EventHandler(this.buttonclear3_Click);
             // 
             // textBoxexp1
             // 
@@ -616,7 +610,7 @@
             // 
             this.textBoxfwhm.Location = new System.Drawing.Point(158, 195);
             this.textBoxfwhm.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxfwhm.MaxLength = 6;
+            this.textBoxfwhm.MaxLength = 5;
             this.textBoxfwhm.Name = "textBoxfwhm";
             this.textBoxfwhm.Size = new System.Drawing.Size(128, 44);
             this.textBoxfwhm.TabIndex = 36;
@@ -638,7 +632,7 @@
             // 
             this.textBoxdec.Location = new System.Drawing.Point(158, 135);
             this.textBoxdec.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxdec.MaxLength = 6;
+            this.textBoxdec.MaxLength = 5;
             this.textBoxdec.Name = "textBoxdec";
             this.textBoxdec.Size = new System.Drawing.Size(128, 44);
             this.textBoxdec.TabIndex = 34;
@@ -666,6 +660,7 @@
             this.buttoncal32.TabIndex = 39;
             this.buttoncal32.Text = "计算";
             this.buttoncal32.UseVisualStyleBackColor = true;
+            this.buttoncal32.Click += new System.EventHandler(this.buttoncal32_Click);
             // 
             // textBoxres1
             // 
@@ -748,6 +743,7 @@
             this.comboBoxunit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxunit.FormattingEnabled = true;
             this.comboBoxunit.Items.AddRange(new object[] {
+            "",
             "度",
             "分",
             "秒"});
@@ -1101,7 +1097,6 @@
         private Label label21;
         private TextBox textBoxdiam2;
         private Label label22;
-        private LinkLabel linkLabel3;
         private LinkLabel linkLabel2;
         private LinkLabel linkLabel1;
     }
