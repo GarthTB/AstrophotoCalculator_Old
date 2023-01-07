@@ -57,7 +57,7 @@ namespace 星空计算器
                 }
                 else if (aper > 0 && diam1 > 0 && fl > 0)
                 {
-                    MessageBox.Show("数据输入有误。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxlims.Text = textBoxliml.Text = "输入有误";
                 }
                 else if (diam1 > 0)
                 {
@@ -68,13 +68,24 @@ namespace 星空计算器
                 }
                 else
                 {
-                    MessageBox.Show("数据输入有误。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxlims.Text = textBoxliml.Text = "输入有误";
                 }
             }
             else
             {
-                MessageBox.Show("数据输入有误。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxlims.Text = textBoxliml.Text = "输入有误";
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Clipboard.SetDataObject("https://github.com/GarthTB/Astro-Calculator");
+            MessageBox.Show("源码网址已复制到剪贴板。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
