@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace 星空计算器
 {
     public partial class Formmain : Form
@@ -221,7 +223,7 @@ namespace 星空计算器
             float.TryParse(textBoxexp1.Text, out float exp1);
             if (res1 > 0 && dec >= -90 && dec <= 90)
             {
-                if (fwhm > 0 && exp1 == 0)
+                if (fwhm > 0 && exp1 >= 0)
                 {
                     exp1 = (float)(res1 * fwhm * 21541 / Math.Cos(dec * Math.PI / 180) / 324000);
                     textBoxexp1.Text = exp1.ToString("N3");
@@ -239,6 +241,149 @@ namespace 星空计算器
             else
             {
                 textBoxexp1.Text = "输入有误";
+            }
+        }
+
+        private void buttonclear4_Click(object sender, EventArgs e)
+        {
+            comboBoxunit.SelectedItem = "";
+            textBoxres2.Text = textBoxtardiam.Text = textBoxsize.Text = "";
+            buttoncal41.Focus();
+        }
+
+        private void buttoncal41_Click(object sender, EventArgs e)
+        {
+            float.TryParse(textBoxfl.Text, out float fl);
+            float.TryParse(textBoxpixelh.Text, out float pixelh);
+            float.TryParse(textBoxpixelv.Text, out float pixelv);
+            if (fl > 0)
+            {
+                if (pixelh > 0 && pixelv > 0)
+                {
+                    float res1 = (float)(Math.Atan((pixelh + pixelv) / fl / 2000) * 648000 / Math.PI);
+                    textBoxres2.Text = res1.ToString("F2");
+                }
+                else if (pixelh > 0 || pixelv > 0)
+                {
+                    float res1 = (float)(Math.Atan((pixelh + pixelv) / fl / 1000) * 648000 / Math.PI);
+                    textBoxres2.Text = res1.ToString("F2");
+                }
+                else
+                {
+                    textBoxres2.Text = "输入有误";
+                }
+            }
+            else
+            {
+                textBoxres2.Text = "输入有误";
+            }
+        }
+
+        private void buttoncal42_Click(object sender, EventArgs e)
+        {
+            float.TryParse(textBoxres2.Text, out float res2);
+            float.TryParse(textBoxtardiam.Text, out float tardiam);
+            if (res2 > 0 && tardiam > 0 && comboBoxunit.SelectedItem.ToString() != "")
+            {
+                float size;
+                switch (comboBoxunit.SelectedItem.ToString())
+                {
+                    case "度":
+                        size = tardiam * 3600 / res2;
+                        textBoxsize.Text = size.ToString("F3");
+                        break;
+                    case "分":
+                        size = tardiam * 60 / res2;
+                        textBoxsize.Text = size.ToString("F3");
+                        break;
+                    case "秒":
+                        size = tardiam / res2;
+                        textBoxsize.Text = size.ToString("F3");
+                        break;
+                }
+            }
+            else
+            {
+                textBoxsize.Text = "输入有误";
+            }
+        }
+
+        private void buttonclear5_Click(object sender, EventArgs e)
+        {
+            textBoxangleh2.Text = textBoxanglev2.Text = textBoxres3.Text = textBoxdiam2.Text = textBoxexp2.Text = textBoxeff.Text = "";
+            textBoxangleh2.Focus();
+        }
+
+        private void buttoncal5_Click(object sender, EventArgs e)
+        {
+            string angleh2s = textBoxangleh2.Text;
+            string anglev2s = textBoxanglev2.Text;
+            float.TryParse(textBoxres3.Text, out float res3);
+            float.TryParse(textBoxdiam2.Text, out float diam2);
+            float.TryParse(textBoxexp2.Text, out float exp2);
+            if (string.IsNullOrWhiteSpace(angleh2s) == false && string.IsNullOrWhiteSpace(anglev2s) == false && res3 > 0 && diam2 > 0 && exp2 > 0)
+            {
+                string RegexStr = @".*°.*′";
+                MatchCollection matchCollectionh = Regex.Matches(angleh2s, RegexStr);
+                MatchCollection matchCollectionv = Regex.Matches(anglev2s, RegexStr);
+                if (matchCollectionh.Count == 1 && matchCollectionv.Count == 1)
+                {
+                    float angleh2, anglev2;
+                    if (angleh2s.Contains('°'))
+                    {
+                        string[] split = angleh2s.Split(new char[2] { '°', '′' });
+                        float.TryParse(split[0], out float degh);
+                        float.TryParse(split[1], out float arcminh);
+                        angleh2 = degh * 60 + arcminh;
+                        if (angleh2 == 0)
+                        {
+                            textBoxeff.Text = "输入错误";
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        string[] split = angleh2s.Split('′');
+                        float.TryParse(split[0], out angleh2);
+                        if (angleh2 == 0)
+                        {
+                            textBoxeff.Text = "输入错误";
+                            return;
+                        }
+                    }
+                    if (anglev2s.Contains('°'))
+                    {
+                        string[] split = anglev2s.Split(new char[2] { '°', '′' });
+                        float.TryParse(split[0], out float degv);
+                        float.TryParse(split[1], out float arcminv);
+                        anglev2 = degv * 60 + arcminv;
+                        if (anglev2 == 0)
+                        {
+                            textBoxeff.Text = "输入错误";
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        string[] split = anglev2s.Split('′');
+                        float.TryParse(split[0], out anglev2);
+                        if (anglev2 == 0)
+                        {
+                            textBoxeff.Text = "输入错误";
+                            return;
+                        }
+                    }
+                    double eff = angleh2 * anglev2 * Math.Pow(diam2 / 2, 2) * Math.PI * Math.Pow(res3 / 60, 2) * exp2 / 1000;
+                    textBoxeff.Text = eff.ToString("F0");
+                }
+                else
+                {
+                    textBoxeff.Text = "输入错误";
+                }
+            }
+            else
+            {
+                textBoxeff.Text = "输入错误";
             }
         }
     }

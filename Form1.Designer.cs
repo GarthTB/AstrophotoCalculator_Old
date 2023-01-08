@@ -715,6 +715,7 @@
             this.buttoncal41.TabIndex = 41;
             this.buttoncal41.Text = "计算";
             this.buttoncal41.UseVisualStyleBackColor = true;
+            this.buttoncal41.Click += new System.EventHandler(this.buttoncal41_Click);
             // 
             // textBoxres2
             // 
@@ -743,7 +744,6 @@
             this.comboBoxunit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxunit.FormattingEnabled = true;
             this.comboBoxunit.Items.AddRange(new object[] {
-            "",
             "度",
             "分",
             "秒"});
@@ -784,6 +784,7 @@
             this.buttonclear4.TabIndex = 49;
             this.buttonclear4.Text = "归零";
             this.buttonclear4.UseVisualStyleBackColor = true;
+            this.buttonclear4.Click += new System.EventHandler(this.buttonclear4_Click);
             // 
             // buttoncal42
             // 
@@ -795,6 +796,7 @@
             this.buttoncal42.TabIndex = 48;
             this.buttoncal42.Text = "计算";
             this.buttoncal42.UseVisualStyleBackColor = true;
+            this.buttoncal42.Click += new System.EventHandler(this.buttoncal42_Click);
             // 
             // label18
             // 
@@ -824,9 +826,9 @@
             // 
             this.textBoxsize.Location = new System.Drawing.Point(186, 315);
             this.textBoxsize.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxsize.MaxLength = 6;
+            this.textBoxsize.MaxLength = 14;
             this.textBoxsize.Name = "textBoxsize";
-            this.textBoxsize.Size = new System.Drawing.Size(116, 44);
+            this.textBoxsize.Size = new System.Drawing.Size(244, 44);
             this.textBoxsize.TabIndex = 51;
             this.textBoxsize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -857,7 +859,7 @@
             // 
             this.textBoxanglev2.Location = new System.Drawing.Point(274, 15);
             this.textBoxanglev2.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxanglev2.MaxLength = 5;
+            this.textBoxanglev2.MaxLength = 10;
             this.textBoxanglev2.Name = "textBoxanglev2";
             this.textBoxanglev2.Size = new System.Drawing.Size(156, 44);
             this.textBoxanglev2.TabIndex = 54;
@@ -879,7 +881,7 @@
             // 
             this.textBoxangleh2.Location = new System.Drawing.Point(104, 15);
             this.textBoxangleh2.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxangleh2.MaxLength = 5;
+            this.textBoxangleh2.MaxLength = 10;
             this.textBoxangleh2.Name = "textBoxangleh2";
             this.textBoxangleh2.Size = new System.Drawing.Size(156, 44);
             this.textBoxangleh2.TabIndex = 53;
@@ -939,6 +941,7 @@
             this.buttonclear5.TabIndex = 62;
             this.buttonclear5.Text = "归零";
             this.buttonclear5.UseVisualStyleBackColor = true;
+            this.buttonclear5.Click += new System.EventHandler(this.buttonclear5_Click);
             // 
             // label22
             // 
@@ -966,9 +969,9 @@
             // 
             this.textBoxeff.Location = new System.Drawing.Point(158, 315);
             this.textBoxeff.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxeff.MaxLength = 6;
+            this.textBoxeff.MaxLength = 14;
             this.textBoxeff.Name = "textBoxeff";
-            this.textBoxeff.Size = new System.Drawing.Size(128, 44);
+            this.textBoxeff.Size = new System.Drawing.Size(272, 44);
             this.textBoxeff.TabIndex = 64;
             this.textBoxeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -994,6 +997,7 @@
             this.buttoncal5.TabIndex = 61;
             this.buttoncal5.Text = "计算";
             this.buttoncal5.UseVisualStyleBackColor = true;
+            this.buttoncal5.Click += new System.EventHandler(this.buttoncal5_Click);
             // 
             // Formmain
             // 
