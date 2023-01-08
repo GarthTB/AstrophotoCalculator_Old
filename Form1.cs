@@ -73,7 +73,7 @@ namespace 星空计算器
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            MessageBox.Show("本计算器适用于没有跟踪设备的星空摄影。\n只考虑地球自转，忽略其他因素影响。\n效率指数正比于单个像素得到上的光子数量。\n具体算法参见源码。\n作者：Garth天卜", "说明", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -231,7 +231,7 @@ namespace 星空计算器
                 else if (exp1 > 0 && fwhm == 0)
                 {
                     fwhm = (float)(Math.Cos(dec * Math.PI / 180) * 324000 * exp1 / res1 / 21541);
-                    textBoxexp1.Text = fwhm.ToString("N3");
+                    textBoxfwhm.Text = fwhm.ToString("N3");
                 }
                 else
                 {
@@ -323,7 +323,7 @@ namespace 星空计算器
             float.TryParse(textBoxexp2.Text, out float exp2);
             if (string.IsNullOrWhiteSpace(angleh2s) == false && string.IsNullOrWhiteSpace(anglev2s) == false && res3 > 0 && diam2 > 0 && exp2 > 0)
             {
-                string RegexStr = @".*°.*′";
+                string RegexStr = @"([0-9]{1,3}°)?[0-9]{1,2}\.[0-9]{2}′";
                 MatchCollection matchCollectionh = Regex.Matches(angleh2s, RegexStr);
                 MatchCollection matchCollectionv = Regex.Matches(anglev2s, RegexStr);
                 if (matchCollectionh.Count == 1 && matchCollectionv.Count == 1)
@@ -385,6 +385,241 @@ namespace 星空计算器
             {
                 textBoxeff.Text = "输入错误";
             }
+        }
+
+        private void textBoxdiam1_TextChanged(object sender, EventArgs e)
+        {
+            textBoxdiam2.Text = textBoxdiam1.Text;
+        }
+
+        private void textBoxangleh1_TextChanged(object sender, EventArgs e)
+        {
+            textBoxangleh2.Text = textBoxangleh1.Text;
+        }
+
+        private void textBoxanglev1_TextChanged(object sender, EventArgs e)
+        {
+            textBoxanglev2.Text = textBoxanglev1.Text;
+        }
+
+        private void textBoxres1_TextChanged(object sender, EventArgs e)
+        {
+            textBoxres3.Text = textBoxres2.Text = textBoxres1.Text;
+        }
+
+        private void textBoxexp1_TextChanged(object sender, EventArgs e)
+        {
+            textBoxexp2.Text = textBoxexp1.Text;
+        }
+
+        private void textBoxres2_TextChanged(object sender, EventArgs e)
+        {
+            textBoxres1.Text = textBoxres3.Text = textBoxres2.Text;
+        }
+
+        private void textBoxangleh2_TextChanged(object sender, EventArgs e)
+        {
+            textBoxangleh1.Text = textBoxangleh2.Text;
+        }
+
+        private void textBoxanglev2_TextChanged(object sender, EventArgs e)
+        {
+            textBoxanglev1.Text = textBoxanglev2.Text;
+        }
+
+        private void textBoxres3_TextChanged(object sender, EventArgs e)
+        {
+            textBoxres1.Text = textBoxres2.Text = textBoxres3.Text;
+        }
+
+        private void textBoxdiam2_TextChanged(object sender, EventArgs e)
+        {
+            textBoxdiam1.Text = textBoxdiam2.Text;
+        }
+
+        private void textBoxexp2_TextChanged(object sender, EventArgs e)
+        {
+            textBoxexp1.Text = textBoxexp2.Text;
+        }
+
+        private void textBoxfl_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxfl, "单位：毫米");
+        }
+
+        private void textBoxaper_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxaper, "望远镜的焦比或镜头的光圈f值");
+        }
+
+        private void textBoxdiam1_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxdiam1, "单位：毫米");
+        }
+
+        private void textBoxwaves_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxwaves, "单位：纳米");
+        }
+
+        private void textBoxwavel_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxwavel, "单位：纳米");
+        }
+
+        private void buttoncal1_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(buttoncal1, "焦距、光圈、口径知二求一\n并计算衍射极限");
+        }
+
+        private void textBoxlims_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxlims, "单位：角秒");
+        }
+
+        private void textBoxliml_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxliml, "单位：角秒");
+        }
+
+        private void comboBoxmodel_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(comboBoxmodel, "快速填入特定相机（传感器）的数据");
+        }
+
+        private void textBoxsensorh_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxsensorh, "传感器长（单位：毫米）");
+        }
+
+        private void textBoxsensorv_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxsensorv, "传感器宽（单位：毫米）");
+        }
+
+        private void textBoxsensorhn_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxsensorhn, "长边的Active pixel数");
+        }
+
+        private void textBoxsensorvn_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxsensorvn, "短边的Active pixel数");
+        }
+
+        private void buttoncal2_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(buttoncal2, "计算像素大小和视角（需在镜头选项卡输入焦距）");
+        }
+
+        private void textBoxpixelh_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxpixelh, "像素长（单位：微米）");
+        }
+
+        private void textBoxpixelv_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxpixelv, "像素宽（单位：微米）");
+        }
+
+        private void textBoxangleh1_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxangleh1, "长边的视角");
+        }
+
+        private void textBoxanglev1_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxanglev1, "短边的视角");
+        }
+
+        private void buttoncal31_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(buttoncal31, "计算总分辨率");
+        }
+
+        private void textBoxres1_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxres1, "单位：角秒/像素");
+        }
+
+        private void textBoxdec_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxdec, "单位：度");
+        }
+
+        private void textBoxfwhm_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxfwhm, "想要刚好不拖线则填入星点半宽(单位：像素)");
+        }
+
+        private void textBoxexp1_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxexp1, "单位：秒");
+        }
+
+        private void buttoncal32_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(buttoncal32, "计算拖线程度或曝光时间");
+        }
+
+        private void buttoncal41_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(buttoncal41, "计算总分辨率");
+        }
+
+        private void textBoxres2_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxres2, "单位：角秒/像素");
+        }
+
+        private void comboBoxunit_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(comboBoxunit, "目标视直径的角度单位");
+        }
+
+        private void textBoxtardiam_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxtardiam, "目标的视直径（角度）");
+        }
+
+        private void buttoncal42_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(buttoncal42, "计算目标所占的像素数");
+        }
+
+        private void textBoxsize_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxsize, "目标所占的像素数");
+        }
+
+        private void textBoxangleh2_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxangleh2, "长边的视角");
+        }
+
+        private void textBoxanglev2_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxanglev2, "短边的视角");
+        }
+
+        private void textBoxres3_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxres3, "单位：角秒/像素");
+        }
+
+        private void textBoxdiam2_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxdiam2, "单位：毫米");
+        }
+
+        private void textBoxexp2_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxexp2, "单位：秒");
+        }
+
+        private void buttoncal5_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(buttoncal5, "计算效率指数");
         }
     }
 }

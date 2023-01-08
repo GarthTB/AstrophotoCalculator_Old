@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formmain));
             this.tabControlmain = new System.Windows.Forms.TabControl();
             this.tabPagelense = new System.Windows.Forms.TabPage();
@@ -102,6 +103,7 @@
             this.textBoxeff = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.buttoncal5 = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControlmain.SuspendLayout();
             this.tabPagelense.SuspendLayout();
             this.tabPagesensor.SuspendLayout();
@@ -197,6 +199,7 @@
             this.textBoxliml.Size = new System.Drawing.Size(128, 44);
             this.textBoxliml.TabIndex = 13;
             this.textBoxliml.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxliml.MouseHover += new System.EventHandler(this.textBoxliml_MouseHover);
             // 
             // textBoxlims
             // 
@@ -207,6 +210,7 @@
             this.textBoxlims.Size = new System.Drawing.Size(128, 44);
             this.textBoxlims.TabIndex = 12;
             this.textBoxlims.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxlims.MouseHover += new System.EventHandler(this.textBoxlims_MouseHover);
             // 
             // textBoxwavel
             // 
@@ -218,6 +222,7 @@
             this.textBoxwavel.TabIndex = 8;
             this.textBoxwavel.Text = "700";
             this.textBoxwavel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxwavel.MouseHover += new System.EventHandler(this.textBoxwavel_MouseHover);
             // 
             // label5
             // 
@@ -241,6 +246,7 @@
             this.textBoxwaves.TabIndex = 7;
             this.textBoxwaves.Text = "400";
             this.textBoxwaves.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxwaves.MouseHover += new System.EventHandler(this.textBoxwaves_MouseHover);
             // 
             // label4
             // 
@@ -265,6 +271,7 @@
             this.buttoncal1.Text = "计算";
             this.buttoncal1.UseVisualStyleBackColor = true;
             this.buttoncal1.Click += new System.EventHandler(this.buttoncal1_Click);
+            this.buttoncal1.MouseHover += new System.EventHandler(this.buttoncal1_MouseHover);
             // 
             // textBoxdiam1
             // 
@@ -275,6 +282,8 @@
             this.textBoxdiam1.Size = new System.Drawing.Size(128, 44);
             this.textBoxdiam1.TabIndex = 5;
             this.textBoxdiam1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxdiam1.TextChanged += new System.EventHandler(this.textBoxdiam1_TextChanged);
+            this.textBoxdiam1.MouseHover += new System.EventHandler(this.textBoxdiam1_MouseHover);
             // 
             // label3
             // 
@@ -297,6 +306,7 @@
             this.textBoxaper.Size = new System.Drawing.Size(128, 44);
             this.textBoxaper.TabIndex = 3;
             this.textBoxaper.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxaper.MouseHover += new System.EventHandler(this.textBoxaper_MouseHover);
             // 
             // label2
             // 
@@ -319,6 +329,7 @@
             this.textBoxfl.Size = new System.Drawing.Size(128, 44);
             this.textBoxfl.TabIndex = 1;
             this.textBoxfl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxfl.MouseHover += new System.EventHandler(this.textBoxfl_MouseHover);
             // 
             // label1
             // 
@@ -367,6 +378,8 @@
             this.textBoxanglev1.Size = new System.Drawing.Size(156, 44);
             this.textBoxanglev1.TabIndex = 29;
             this.textBoxanglev1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxanglev1.TextChanged += new System.EventHandler(this.textBoxanglev1_TextChanged);
+            this.textBoxanglev1.MouseHover += new System.EventHandler(this.textBoxanglev1_MouseHover);
             // 
             // textBoxangleh1
             // 
@@ -377,6 +390,8 @@
             this.textBoxangleh1.Size = new System.Drawing.Size(156, 44);
             this.textBoxangleh1.TabIndex = 28;
             this.textBoxangleh1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxangleh1.TextChanged += new System.EventHandler(this.textBoxangleh1_TextChanged);
+            this.textBoxangleh1.MouseHover += new System.EventHandler(this.textBoxangleh1_MouseHover);
             // 
             // label16
             // 
@@ -399,6 +414,7 @@
             this.textBoxsensorvn.Size = new System.Drawing.Size(116, 44);
             this.textBoxsensorvn.TabIndex = 21;
             this.textBoxsensorvn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxsensorvn.MouseHover += new System.EventHandler(this.textBoxsensorvn_MouseHover);
             // 
             // textBoxsensorhn
             // 
@@ -409,6 +425,7 @@
             this.textBoxsensorhn.Size = new System.Drawing.Size(116, 44);
             this.textBoxsensorhn.TabIndex = 20;
             this.textBoxsensorhn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxsensorhn.MouseHover += new System.EventHandler(this.textBoxsensorhn_MouseHover);
             // 
             // comboBoxmodel
             // 
@@ -426,6 +443,7 @@
             this.comboBoxmodel.Size = new System.Drawing.Size(273, 44);
             this.comboBoxmodel.TabIndex = 15;
             this.comboBoxmodel.SelectedIndexChanged += new System.EventHandler(this.comboBoxmodel_SelectedIndexChanged);
+            this.comboBoxmodel.MouseHover += new System.EventHandler(this.comboBoxmodel_MouseHover);
             // 
             // label9
             // 
@@ -448,6 +466,7 @@
             this.textBoxpixelv.Size = new System.Drawing.Size(128, 44);
             this.textBoxpixelv.TabIndex = 26;
             this.textBoxpixelv.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxpixelv.MouseHover += new System.EventHandler(this.textBoxpixelv_MouseHover);
             // 
             // buttonclear2
             // 
@@ -470,6 +489,7 @@
             this.textBoxpixelh.Size = new System.Drawing.Size(128, 44);
             this.textBoxpixelh.TabIndex = 25;
             this.textBoxpixelh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxpixelh.MouseHover += new System.EventHandler(this.textBoxpixelh_MouseHover);
             // 
             // label7
             // 
@@ -494,6 +514,7 @@
             this.buttoncal2.Text = "计算";
             this.buttoncal2.UseVisualStyleBackColor = true;
             this.buttoncal2.Click += new System.EventHandler(this.buttoncal2_Click);
+            this.buttoncal2.MouseHover += new System.EventHandler(this.buttoncal2_MouseHover);
             // 
             // label8
             // 
@@ -516,6 +537,7 @@
             this.textBoxsensorv.Size = new System.Drawing.Size(116, 44);
             this.textBoxsensorv.TabIndex = 18;
             this.textBoxsensorv.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxsensorv.MouseHover += new System.EventHandler(this.textBoxsensorv_MouseHover);
             // 
             // textBoxsensorh
             // 
@@ -526,6 +548,7 @@
             this.textBoxsensorh.Size = new System.Drawing.Size(116, 44);
             this.textBoxsensorh.TabIndex = 17;
             this.textBoxsensorh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxsensorh.MouseHover += new System.EventHandler(this.textBoxsensorh_MouseHover);
             // 
             // label10
             // 
@@ -571,6 +594,7 @@
             this.buttoncal31.Text = "计算";
             this.buttoncal31.UseVisualStyleBackColor = true;
             this.buttoncal31.Click += new System.EventHandler(this.buttoncal31_Click);
+            this.buttoncal31.MouseHover += new System.EventHandler(this.buttoncal31_MouseHover);
             // 
             // label14
             // 
@@ -605,6 +629,8 @@
             this.textBoxexp1.Size = new System.Drawing.Size(128, 44);
             this.textBoxexp1.TabIndex = 38;
             this.textBoxexp1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxexp1.TextChanged += new System.EventHandler(this.textBoxexp1_TextChanged);
+            this.textBoxexp1.MouseHover += new System.EventHandler(this.textBoxexp1_MouseHover);
             // 
             // textBoxfwhm
             // 
@@ -615,6 +641,7 @@
             this.textBoxfwhm.Size = new System.Drawing.Size(128, 44);
             this.textBoxfwhm.TabIndex = 36;
             this.textBoxfwhm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxfwhm.MouseHover += new System.EventHandler(this.textBoxfwhm_MouseHover);
             // 
             // label11
             // 
@@ -637,6 +664,7 @@
             this.textBoxdec.Size = new System.Drawing.Size(128, 44);
             this.textBoxdec.TabIndex = 34;
             this.textBoxdec.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxdec.MouseHover += new System.EventHandler(this.textBoxdec_MouseHover);
             // 
             // label12
             // 
@@ -661,6 +689,7 @@
             this.buttoncal32.Text = "计算";
             this.buttoncal32.UseVisualStyleBackColor = true;
             this.buttoncal32.Click += new System.EventHandler(this.buttoncal32_Click);
+            this.buttoncal32.MouseHover += new System.EventHandler(this.buttoncal32_MouseHover);
             // 
             // textBoxres1
             // 
@@ -671,6 +700,8 @@
             this.textBoxres1.Size = new System.Drawing.Size(128, 44);
             this.textBoxres1.TabIndex = 32;
             this.textBoxres1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxres1.TextChanged += new System.EventHandler(this.textBoxres1_TextChanged);
+            this.textBoxres1.MouseHover += new System.EventHandler(this.textBoxres1_MouseHover);
             // 
             // label13
             // 
@@ -716,6 +747,7 @@
             this.buttoncal41.Text = "计算";
             this.buttoncal41.UseVisualStyleBackColor = true;
             this.buttoncal41.Click += new System.EventHandler(this.buttoncal41_Click);
+            this.buttoncal41.MouseHover += new System.EventHandler(this.buttoncal41_MouseHover);
             // 
             // textBoxres2
             // 
@@ -726,6 +758,8 @@
             this.textBoxres2.Size = new System.Drawing.Size(128, 44);
             this.textBoxres2.TabIndex = 43;
             this.textBoxres2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxres2.TextChanged += new System.EventHandler(this.textBoxres2_TextChanged);
+            this.textBoxres2.MouseHover += new System.EventHandler(this.textBoxres2_MouseHover);
             // 
             // label6
             // 
@@ -751,6 +785,7 @@
             this.comboBoxunit.Name = "comboBoxunit";
             this.comboBoxunit.Size = new System.Drawing.Size(128, 44);
             this.comboBoxunit.TabIndex = 45;
+            this.comboBoxunit.MouseHover += new System.EventHandler(this.comboBoxunit_MouseHover);
             // 
             // label24
             // 
@@ -773,6 +808,7 @@
             this.textBoxtardiam.Size = new System.Drawing.Size(244, 44);
             this.textBoxtardiam.TabIndex = 47;
             this.textBoxtardiam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxtardiam.MouseHover += new System.EventHandler(this.textBoxtardiam_MouseHover);
             // 
             // buttonclear4
             // 
@@ -797,6 +833,7 @@
             this.buttoncal42.Text = "计算";
             this.buttoncal42.UseVisualStyleBackColor = true;
             this.buttoncal42.Click += new System.EventHandler(this.buttoncal42_Click);
+            this.buttoncal42.MouseHover += new System.EventHandler(this.buttoncal42_MouseHover);
             // 
             // label18
             // 
@@ -831,6 +868,7 @@
             this.textBoxsize.Size = new System.Drawing.Size(244, 44);
             this.textBoxsize.TabIndex = 51;
             this.textBoxsize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxsize.MouseHover += new System.EventHandler(this.textBoxsize_MouseHover);
             // 
             // tabPagefov
             // 
@@ -864,6 +902,8 @@
             this.textBoxanglev2.Size = new System.Drawing.Size(156, 44);
             this.textBoxanglev2.TabIndex = 54;
             this.textBoxanglev2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxanglev2.TextChanged += new System.EventHandler(this.textBoxanglev2_TextChanged);
+            this.textBoxanglev2.MouseHover += new System.EventHandler(this.textBoxanglev2_MouseHover);
             // 
             // label17
             // 
@@ -886,6 +926,8 @@
             this.textBoxangleh2.Size = new System.Drawing.Size(156, 44);
             this.textBoxangleh2.TabIndex = 53;
             this.textBoxangleh2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxangleh2.TextChanged += new System.EventHandler(this.textBoxangleh2_TextChanged);
+            this.textBoxangleh2.MouseHover += new System.EventHandler(this.textBoxangleh2_MouseHover);
             // 
             // textBoxexp2
             // 
@@ -896,6 +938,8 @@
             this.textBoxexp2.Size = new System.Drawing.Size(128, 44);
             this.textBoxexp2.TabIndex = 60;
             this.textBoxexp2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxexp2.TextChanged += new System.EventHandler(this.textBoxexp2_TextChanged);
+            this.textBoxexp2.MouseHover += new System.EventHandler(this.textBoxexp2_MouseHover);
             // 
             // label21
             // 
@@ -930,6 +974,8 @@
             this.textBoxdiam2.Size = new System.Drawing.Size(128, 44);
             this.textBoxdiam2.TabIndex = 56;
             this.textBoxdiam2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxdiam2.TextChanged += new System.EventHandler(this.textBoxdiam2_TextChanged);
+            this.textBoxdiam2.MouseHover += new System.EventHandler(this.textBoxdiam2_MouseHover);
             // 
             // buttonclear5
             // 
@@ -964,6 +1010,8 @@
             this.textBoxres3.Size = new System.Drawing.Size(128, 44);
             this.textBoxres3.TabIndex = 58;
             this.textBoxres3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxres3.TextChanged += new System.EventHandler(this.textBoxres3_TextChanged);
+            this.textBoxres3.MouseHover += new System.EventHandler(this.textBoxres3_MouseHover);
             // 
             // textBoxeff
             // 
@@ -998,6 +1046,7 @@
             this.buttoncal5.Text = "计算";
             this.buttoncal5.UseVisualStyleBackColor = true;
             this.buttoncal5.Click += new System.EventHandler(this.buttoncal5_Click);
+            this.buttoncal5.MouseHover += new System.EventHandler(this.buttoncal5_MouseHover);
             // 
             // Formmain
             // 
@@ -1103,5 +1152,6 @@
         private Label label22;
         private LinkLabel linkLabel2;
         private LinkLabel linkLabel1;
+        private ToolTip toolTip;
     }
 }
