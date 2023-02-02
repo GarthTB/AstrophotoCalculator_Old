@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formmain));
             this.tabControlmain = new System.Windows.Forms.TabControl();
             this.tabPagelense = new System.Windows.Forms.TabPage();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.buttonclear1 = new System.Windows.Forms.Button();
             this.textBoxliml = new System.Windows.Forms.TextBox();
             this.textBoxlims = new System.Windows.Forms.TextBox();
@@ -90,11 +88,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxsize = new System.Windows.Forms.TextBox();
             this.tabPagefov = new System.Windows.Forms.TabPage();
-            this.textBoxanglev2 = new System.Windows.Forms.TextBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBoxangleh2 = new System.Windows.Forms.TextBox();
             this.textBoxexp2 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.textBoxdiam2 = new System.Windows.Forms.TextBox();
             this.buttonclear5 = new System.Windows.Forms.Button();
@@ -130,8 +127,6 @@
             // 
             // tabPagelense
             // 
-            this.tabPagelense.Controls.Add(this.linkLabel2);
-            this.tabPagelense.Controls.Add(this.linkLabel1);
             this.tabPagelense.Controls.Add(this.buttonclear1);
             this.tabPagelense.Controls.Add(this.textBoxliml);
             this.tabPagelense.Controls.Add(this.textBoxlims);
@@ -153,30 +148,6 @@
             this.tabPagelense.TabIndex = 0;
             this.tabPagelense.Text = "镜头";
             this.tabPagelense.UseVisualStyleBackColor = true;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(331, 78);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(71, 36);
-            this.linkLabel2.TabIndex = 15;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "源码";
-            this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(331, 18);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(71, 36);
-            this.linkLabel1.TabIndex = 14;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "说明";
-            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // buttonclear1
             // 
@@ -378,7 +349,6 @@
             this.textBoxanglev1.Size = new System.Drawing.Size(156, 44);
             this.textBoxanglev1.TabIndex = 29;
             this.textBoxanglev1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxanglev1.TextChanged += new System.EventHandler(this.textBoxanglev1_TextChanged);
             this.textBoxanglev1.MouseHover += new System.EventHandler(this.textBoxanglev1_MouseHover);
             // 
             // textBoxangleh1
@@ -390,7 +360,6 @@
             this.textBoxangleh1.Size = new System.Drawing.Size(156, 44);
             this.textBoxangleh1.TabIndex = 28;
             this.textBoxangleh1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxangleh1.TextChanged += new System.EventHandler(this.textBoxangleh1_TextChanged);
             this.textBoxangleh1.MouseHover += new System.EventHandler(this.textBoxangleh1_MouseHover);
             // 
             // label16
@@ -435,9 +404,12 @@
             this.comboBoxmodel.ItemHeight = 36;
             this.comboBoxmodel.Items.AddRange(new object[] {
             "",
-            "D5100 (IMX071)",
-            "Z6 (IMX410)",
-            "α7Ⅲ (IMX410)"});
+            "IMX071",
+            "IMX410",
+            "IMX455",
+            "IMX461",
+            "IMX533",
+            "IMX571"});
             this.comboBoxmodel.Location = new System.Drawing.Point(157, 15);
             this.comboBoxmodel.Name = "comboBoxmodel";
             this.comboBoxmodel.Size = new System.Drawing.Size(273, 44);
@@ -872,11 +844,10 @@
             // 
             // tabPagefov
             // 
-            this.tabPagefov.Controls.Add(this.textBoxanglev2);
+            this.tabPagefov.Controls.Add(this.linkLabel2);
+            this.tabPagefov.Controls.Add(this.linkLabel1);
             this.tabPagefov.Controls.Add(this.label17);
-            this.tabPagefov.Controls.Add(this.textBoxangleh2);
             this.tabPagefov.Controls.Add(this.textBoxexp2);
-            this.tabPagefov.Controls.Add(this.label21);
             this.tabPagefov.Controls.Add(this.label19);
             this.tabPagefov.Controls.Add(this.textBoxdiam2);
             this.tabPagefov.Controls.Add(this.buttonclear5);
@@ -893,22 +864,32 @@
             this.tabPagefov.Text = "效率";
             this.tabPagefov.UseVisualStyleBackColor = true;
             // 
-            // textBoxanglev2
+            // linkLabel2
             // 
-            this.textBoxanglev2.Location = new System.Drawing.Point(274, 15);
-            this.textBoxanglev2.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxanglev2.MaxLength = 10;
-            this.textBoxanglev2.Name = "textBoxanglev2";
-            this.textBoxanglev2.Size = new System.Drawing.Size(156, 44);
-            this.textBoxanglev2.TabIndex = 54;
-            this.textBoxanglev2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxanglev2.TextChanged += new System.EventHandler(this.textBoxanglev2_TextChanged);
-            this.textBoxanglev2.MouseHover += new System.EventHandler(this.textBoxanglev2_MouseHover);
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(331, 315);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(71, 36);
+            this.linkLabel2.TabIndex = 66;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "源码";
+            this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(187, 315);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(71, 36);
+            this.linkLabel1.TabIndex = 65;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "说明";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(9, 192);
+            this.label17.Location = new System.Drawing.Point(9, 132);
             this.label17.Margin = new System.Windows.Forms.Padding(6);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(6);
@@ -917,21 +898,9 @@
             this.label17.Text = "曝光时间";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxangleh2
-            // 
-            this.textBoxangleh2.Location = new System.Drawing.Point(104, 15);
-            this.textBoxangleh2.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxangleh2.MaxLength = 10;
-            this.textBoxangleh2.Name = "textBoxangleh2";
-            this.textBoxangleh2.Size = new System.Drawing.Size(156, 44);
-            this.textBoxangleh2.TabIndex = 53;
-            this.textBoxangleh2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxangleh2.TextChanged += new System.EventHandler(this.textBoxangleh2_TextChanged);
-            this.textBoxangleh2.MouseHover += new System.EventHandler(this.textBoxangleh2_MouseHover);
-            // 
             // textBoxexp2
             // 
-            this.textBoxexp2.Location = new System.Drawing.Point(158, 195);
+            this.textBoxexp2.Location = new System.Drawing.Point(158, 135);
             this.textBoxexp2.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxexp2.MaxLength = 6;
             this.textBoxexp2.Name = "textBoxexp2";
@@ -941,22 +910,10 @@
             this.textBoxexp2.TextChanged += new System.EventHandler(this.textBoxexp2_TextChanged);
             this.textBoxexp2.MouseHover += new System.EventHandler(this.textBoxexp2_MouseHover);
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(9, 12);
-            this.label21.Margin = new System.Windows.Forms.Padding(6);
-            this.label21.Name = "label21";
-            this.label21.Padding = new System.Windows.Forms.Padding(6);
-            this.label21.Size = new System.Drawing.Size(83, 48);
-            this.label21.TabIndex = 52;
-            this.label21.Text = "视角";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(9, 72);
+            this.label19.Location = new System.Drawing.Point(9, 12);
             this.label19.Margin = new System.Windows.Forms.Padding(6);
             this.label19.Name = "label19";
             this.label19.Padding = new System.Windows.Forms.Padding(6);
@@ -967,7 +924,7 @@
             // 
             // textBoxdiam2
             // 
-            this.textBoxdiam2.Location = new System.Drawing.Point(158, 135);
+            this.textBoxdiam2.Location = new System.Drawing.Point(158, 75);
             this.textBoxdiam2.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxdiam2.MaxLength = 5;
             this.textBoxdiam2.Name = "textBoxdiam2";
@@ -980,7 +937,7 @@
             // buttonclear5
             // 
             this.buttonclear5.AutoSize = true;
-            this.buttonclear5.Location = new System.Drawing.Point(302, 255);
+            this.buttonclear5.Location = new System.Drawing.Point(302, 195);
             this.buttonclear5.Margin = new System.Windows.Forms.Padding(6);
             this.buttonclear5.Name = "buttonclear5";
             this.buttonclear5.Size = new System.Drawing.Size(128, 46);
@@ -992,7 +949,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(9, 132);
+            this.label22.Location = new System.Drawing.Point(9, 72);
             this.label22.Margin = new System.Windows.Forms.Padding(6);
             this.label22.Name = "label22";
             this.label22.Padding = new System.Windows.Forms.Padding(6);
@@ -1003,7 +960,7 @@
             // 
             // textBoxres3
             // 
-            this.textBoxres3.Location = new System.Drawing.Point(158, 75);
+            this.textBoxres3.Location = new System.Drawing.Point(158, 15);
             this.textBoxres3.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxres3.MaxLength = 6;
             this.textBoxres3.Name = "textBoxres3";
@@ -1015,7 +972,7 @@
             // 
             // textBoxeff
             // 
-            this.textBoxeff.Location = new System.Drawing.Point(158, 315);
+            this.textBoxeff.Location = new System.Drawing.Point(158, 255);
             this.textBoxeff.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxeff.MaxLength = 14;
             this.textBoxeff.Name = "textBoxeff";
@@ -1026,7 +983,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(9, 312);
+            this.label20.Location = new System.Drawing.Point(9, 252);
             this.label20.Margin = new System.Windows.Forms.Padding(6);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(6);
@@ -1038,7 +995,7 @@
             // buttoncal5
             // 
             this.buttoncal5.AutoSize = true;
-            this.buttoncal5.Location = new System.Drawing.Point(158, 255);
+            this.buttoncal5.Location = new System.Drawing.Point(158, 195);
             this.buttoncal5.Margin = new System.Windows.Forms.Padding(6);
             this.buttoncal5.Name = "buttoncal5";
             this.buttoncal5.Size = new System.Drawing.Size(128, 46);
@@ -1143,15 +1100,12 @@
         private Button buttoncal41;
         private TextBox textBoxres2;
         private Label label6;
-        private TextBox textBoxanglev2;
         private Label label17;
-        private TextBox textBoxangleh2;
         private TextBox textBoxexp2;
-        private Label label21;
         private TextBox textBoxdiam2;
         private Label label22;
+        private ToolTip toolTip;
         private LinkLabel linkLabel2;
         private LinkLabel linkLabel1;
-        private ToolTip toolTip;
     }
 }

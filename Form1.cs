@@ -1,5 +1,3 @@
-using System.Text.RegularExpressions;
-
 namespace 星空计算器
 {
     public partial class Formmain : Form
@@ -73,7 +71,7 @@ namespace 星空计算器
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("本计算器适用于没有跟踪设备的星空摄影。\n只考虑地球自转，忽略其他因素影响。\n效率指数正比于单个像素得到上的光子数量。\n具体算法参见源码。\n作者：Garth天卜", "说明", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("本计算器适用于没有跟踪设备的星空摄影。\n只考虑地球自转，忽略其他因素影响。\n效率指数反映每像素的信噪比。\n具体算法参见源码。\n作者：Garth天卜", "说明", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -89,20 +87,47 @@ namespace 星空计算器
                 case "":
                     textBoxsensorh.Text = textBoxsensorv.Text = textBoxsensorhn.Text = textBoxsensorvn.Text = textBoxpixelh.Text = textBoxpixelv.Text = "";
                     break;
-                case "Z6 (IMX410)":
-                case "α7Ⅲ (IMX410)":
+                case "IMX071":
+                    textBoxsensorh.Text = "23.73";
+                    textBoxsensorv.Text = "15.76";
+                    textBoxsensorhn.Text = "4944";
+                    textBoxsensorvn.Text = "3284";
+                    textBoxpixelh.Text = textBoxpixelv.Text = "4.80";
+                    break;
+                case "IMX410":
                     textBoxsensorh.Text = "36.07";
                     textBoxsensorv.Text = "24.01";
                     textBoxsensorhn.Text = "6072";
                     textBoxsensorvn.Text = "4042";
                     textBoxpixelh.Text = textBoxpixelv.Text = "5.94";
                     break;
-                case "D5100 (IMX071)":
-                    textBoxsensorh.Text = "23.73";
-                    textBoxsensorv.Text = "15.76";
-                    textBoxsensorhn.Text = "4944";
-                    textBoxsensorvn.Text = "3284";
-                    textBoxpixelh.Text = textBoxpixelv.Text = "4.80";
+                case "IMX455":
+                    textBoxsensorh.Text = "36";
+                    textBoxsensorv.Text = "24";
+                    textBoxsensorhn.Text = "9576";
+                    textBoxsensorvn.Text = "6388";
+                    textBoxpixelh.Text = textBoxpixelv.Text = "3.76";
+                    break;
+                case "IMX461":
+                    textBoxsensorh.Text = "43.8";
+                    textBoxsensorv.Text = "32.87";
+                    textBoxsensorhn.Text = "11664";
+                    textBoxsensorvn.Text = "8750";
+                    textBoxpixelh.Text = textBoxpixelv.Text = "3.76";
+                    break;
+                case "IMX533":
+                    textBoxsensorh.Text = "11.31";
+                    textBoxsensorv.Text = "11.31";
+                    textBoxsensorhn.Text = "3008";
+                    textBoxsensorvn.Text = "3008";
+                    textBoxpixelh.Text = textBoxpixelv.Text = "3.76";
+                    break;
+                case "IMX571":
+                    textBoxsensorh.Text = "23.61";
+                    textBoxsensorv.Text = "15.83";
+                    textBoxsensorhn.Text = "6280";
+                    textBoxsensorvn.Text = "4210";
+                    textBoxpixelh.Text = textBoxpixelv.Text = "3.76";
                     break;
             }
         }
@@ -310,76 +335,24 @@ namespace 星空计算器
 
         private void buttonclear5_Click(object sender, EventArgs e)
         {
-            textBoxangleh2.Text = textBoxanglev2.Text = textBoxres3.Text = textBoxdiam2.Text = textBoxexp2.Text = textBoxeff.Text = "";
-            textBoxangleh2.Focus();
+            textBoxres3.Text = textBoxdiam2.Text = textBoxexp2.Text = textBoxeff.Text = "";
+            textBoxres3.Focus();
         }
 
         private void buttoncal5_Click(object sender, EventArgs e)
         {
-            string angleh2s = textBoxangleh2.Text;
-            string anglev2s = textBoxanglev2.Text;
             float.TryParse(textBoxres3.Text, out float res3);
             float.TryParse(textBoxdiam2.Text, out float diam2);
             float.TryParse(textBoxexp2.Text, out float exp2);
-            if (string.IsNullOrWhiteSpace(angleh2s) == false && string.IsNullOrWhiteSpace(anglev2s) == false && res3 > 0 && diam2 > 0 && exp2 > 0)
+            if (res3 > 0 && diam2 > 0 && exp2 > 0)
             {
-                string RegexStr = @"([0-9]{1,3}°)?[0-9]{1,2}\.[0-9]{2}′";
-                MatchCollection matchCollectionh = Regex.Matches(angleh2s, RegexStr);
-                MatchCollection matchCollectionv = Regex.Matches(anglev2s, RegexStr);
-                if (matchCollectionh.Count == 1 && matchCollectionv.Count == 1)
-                {
-                    float angleh2, anglev2;
-                    if (angleh2s.Contains('°'))
-                    {
-                        string[] split = angleh2s.Split(new char[2] { '°', '′' });
-                        float.TryParse(split[0], out float degh);
-                        float.TryParse(split[1], out float arcminh);
-                        angleh2 = degh * 60 + arcminh;
-                        if (angleh2 == 0)
-                        {
-                            textBoxeff.Text = "输入错误";
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        string[] split = angleh2s.Split('′');
-                        float.TryParse(split[0], out angleh2);
-                        if (angleh2 == 0)
-                        {
-                            textBoxeff.Text = "输入错误";
-                            return;
-                        }
-                    }
-                    if (anglev2s.Contains('°'))
-                    {
-                        string[] split = anglev2s.Split(new char[2] { '°', '′' });
-                        float.TryParse(split[0], out float degv);
-                        float.TryParse(split[1], out float arcminv);
-                        anglev2 = degv * 60 + arcminv;
-                        if (anglev2 == 0)
-                        {
-                            textBoxeff.Text = "输入错误";
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        string[] split = anglev2s.Split('′');
-                        float.TryParse(split[0], out anglev2);
-                        if (anglev2 == 0)
-                        {
-                            textBoxeff.Text = "输入错误";
-                            return;
-                        }
-                    }
-                    double eff = angleh2 * anglev2 * Math.Pow(diam2 / 2, 2) * Math.PI * Math.Pow(res3 / 60, 2) * exp2 / 1000;
-                    textBoxeff.Text = eff.ToString("F0");
-                }
-                else
-                {
-                    textBoxeff.Text = "输入错误";
-                }
+                //假设某一确定天体，单位时间内，每角秒发出的光子数量恒定。忽略量子效率和读出噪声。
+                //信噪比与光子数量的算数平方根成正比。
+                //一个天体每角秒的信噪比，与口径成正比，与焦比无关。（参见猫10篇的note-add1）
+                //*10000是为了让数据更直观。
+                //每像素信噪比 ∝ 口径 * 每像素的角大小 * √(曝光时间)
+                double eff = diam2 * res3 * Math.Sqrt(exp2) * 10000;
+                textBoxeff.Text = eff.ToString("F0");
             }
             else
             {
@@ -392,15 +365,6 @@ namespace 星空计算器
             textBoxdiam2.Text = textBoxdiam1.Text;
         }
 
-        private void textBoxangleh1_TextChanged(object sender, EventArgs e)
-        {
-            textBoxangleh2.Text = textBoxangleh1.Text;
-        }
-
-        private void textBoxanglev1_TextChanged(object sender, EventArgs e)
-        {
-            textBoxanglev2.Text = textBoxanglev1.Text;
-        }
 
         private void textBoxres1_TextChanged(object sender, EventArgs e)
         {
@@ -417,15 +381,6 @@ namespace 星空计算器
             textBoxres1.Text = textBoxres3.Text = textBoxres2.Text;
         }
 
-        private void textBoxangleh2_TextChanged(object sender, EventArgs e)
-        {
-            textBoxangleh1.Text = textBoxangleh2.Text;
-        }
-
-        private void textBoxanglev2_TextChanged(object sender, EventArgs e)
-        {
-            textBoxanglev1.Text = textBoxanglev2.Text;
-        }
 
         private void textBoxres3_TextChanged(object sender, EventArgs e)
         {
@@ -592,15 +547,6 @@ namespace 星空计算器
             toolTip.SetToolTip(textBoxsize, "目标所占的像素数");
         }
 
-        private void textBoxangleh2_MouseHover(object sender, EventArgs e)
-        {
-            toolTip.SetToolTip(textBoxangleh2, "长边的视角");
-        }
-
-        private void textBoxanglev2_MouseHover(object sender, EventArgs e)
-        {
-            toolTip.SetToolTip(textBoxanglev2, "短边的视角");
-        }
 
         private void textBoxres3_MouseHover(object sender, EventArgs e)
         {
