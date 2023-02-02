@@ -981,6 +981,7 @@
             this.textBoxeff.Size = new System.Drawing.Size(272, 44);
             this.textBoxeff.TabIndex = 64;
             this.textBoxeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxeff.MouseHover += new System.EventHandler(this.textBoxeff_MouseHover);
             // 
             // label20
             // 

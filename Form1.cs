@@ -246,17 +246,31 @@ namespace 星空计算器
             float.TryParse(textBoxdec.Text, out float dec);
             float.TryParse(textBoxfwhm.Text, out float fwhm);
             float.TryParse(textBoxexp1.Text, out float exp1);
-            if (res1 > 0 && dec >= -90 && dec <= 90)
+            if (res1 > 0 && dec >= -90 && dec <= 90 && textBoxdec.Text != "")
             {
                 if (fwhm > 0 && exp1 >= 0)
                 {
                     exp1 = (float)(res1 * fwhm * 21541 / Math.Cos(dec * Math.PI / 180) / 324000);
-                    textBoxexp1.Text = exp1.ToString("N3");
+                    if (exp1 > 86164)
+                    {
+                        textBoxexp1.Text = "超过一天";
+                    }
+                    else
+                    {
+                        textBoxexp1.Text = exp1.ToString("N3");
+                    }
                 }
                 else if (exp1 > 0 && fwhm == 0)
                 {
                     fwhm = (float)(Math.Cos(dec * Math.PI / 180) * 324000 * exp1 / res1 / 21541);
-                    textBoxfwhm.Text = fwhm.ToString("N3");
+                    if (fwhm > 10000)
+                    {
+                        textBoxfwhm.Text = ">10000";
+                    }
+                    else
+                    {
+                        textBoxfwhm.Text = fwhm.ToString("N3");
+                    }
                 }
                 else
                 {
@@ -566,6 +580,11 @@ namespace 星空计算器
         private void buttoncal5_MouseHover(object sender, EventArgs e)
         {
             toolTip.SetToolTip(buttoncal5, "计算效率指数");
+        }
+
+        private void textBoxeff_MouseHover(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(textBoxeff, "反映每像素的信噪比");
         }
     }
 }
